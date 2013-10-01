@@ -5,18 +5,21 @@
   :dependencies [[org.clojure/clojure "1.5.1"]
                  [org.clojure/clojurescript "0.0-1909"]
                  [domina "1.0.2-SNAPSHOT"]
-                 [org.jsoup/jsoup "1.7.2"]]
+                 [org.jsoup/jsoup "1.7.2"]
+                 [com.cemerick/clojurescript.test "0.0.4"]]
   :plugins [[lein-cljsbuild "0.3.3"]]
   :hooks [leiningen.cljsbuild]
   :cljsbuild
   {:crossovers [enfocus.enlive.syntax]
    :builds
    {:whitespace
-     {:source-paths ["src/cljs"]
+     {:source-paths ["src/cljs" "test/cljs"]
       :compiler
-      {:output-dir "../testing/resources/public/cljs"
-       :output-to "../testing/resources/public/cljs/enfocus.js"
+      {:output-to "target/cljs/whitespace.js"
        :optimizations :whitespace
-       :pretty-print true}}}})
+       :pretty-print true}}}
+   :test-commands {"whitespace" 
+                   ["runners/phantomjs.js" 
+                    "target/cljs/whitespace.js"]}})
 
 
