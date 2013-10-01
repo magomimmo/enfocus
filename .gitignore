@@ -8,7 +8,6 @@ target
 .metadata
 .project
 .classpath
-*.js
 testing/resources/public/cljs/
 *.*#
 .#*
