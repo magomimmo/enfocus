@@ -15,11 +15,11 @@
    {:whitespace
      {:source-paths ["src/cljs" "test/cljs"]
       :compiler
-      {:output-to "target/cljs/whitespace.js"
+      {:output-to "resources/public/js/whitespace.js"
        :optimizations :whitespace
        :pretty-print true}}}
    :test-commands {"whitespace" 
                    ["runners/phantomjs.js" 
-                    "target/cljs/whitespace.js"]}})
+                    "resources/public/js/whitespace.js"]}})
 
 
