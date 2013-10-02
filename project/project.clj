@@ -3,8 +3,7 @@
   :source-paths ["src/clj" "target/clj"]
   :dependencies [[org.clojure/clojure "1.4.0"]
                  [domina "1.0.2-SNAPSHOT"]
-                 [org.jsoup/jsoup "1.7.2"]
-                 ]
+                 [org.jsoup/jsoup "1.7.2"]]
   :plugins [[lein-cljsbuild "0.3.0"]
             [com.keminglabs/cljx "0.3.0"]]
   :cljx {:builds [{:source-paths ["src/cljx"]
@@ -16,12 +15,12 @@
                    :rules :cljs}]}
   :cljsbuild
   {:builds
-   [{:builds nil,
-     :source-paths ["src/cljs" "target/cljs"]
+   {:whitespace
+    {:source-paths ["src/cljs" "target/cljs"]
      :compiler
-     {:output-dir "../testing/resources/public/cljs",
-      :output-to "../testing/resources/public/cljs/enfocus.js",
-      :optimizations :whitespace,
-      :pretty-print true}}]}
+     {:output-dir "../testing/resources/public/cljs"
+      :output-to "../testing/resources/public/cljs/enfocus.js"
+      :optimizations :whitespace
+      :pretty-print true}}}}
   :hooks [cljx.hooks])
 
