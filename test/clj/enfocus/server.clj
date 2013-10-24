@@ -10,7 +10,7 @@
 (defroutes site
   ; to serve document root address
   (GET "/" [] (redirect "/index.html"))
-  ; to serve static pages saved in resources/public directory
+  ; to serve static pages saved in dev-resources/public directory
   (resources "/")
   ; if page is not found
   (not-found "Page not found"))
