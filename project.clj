@@ -11,7 +11,7 @@
   :test-paths ["test/clj"]
 
   :dependencies [[org.clojure/clojure "1.5.1"]
-                 [org.clojure/clojurescript "0.0-1934"]
+                 [org.clojure/clojurescript "0.0-1913"]
                  [org.clojars.magomimmo/domina "1.0.3-SNAPSHOT"]
                  [org.jsoup/jsoup "1.7.2"]]
 
