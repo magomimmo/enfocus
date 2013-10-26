@@ -1,5 +1,5 @@
 #+clj (ns enfocus.enlive.syntax-test
-        (:require [clojure.test :refer [deftest are is testing]]
+        (:require [clojure.test :refer [deftest testing are]]
                   [enfocus.enlive.syntax :refer [convert]]))
 
 #+cljs (ns enfocus.enlive.syntax-test
@@ -8,4 +8,25 @@
                    [enfocus.enlive.syntax :refer [convert]]))
 
 (deftest convert-test 
-  (is (= 0 1)))
+  (testing "Unit Test for (convert arg)\n"
+    
+    (testing "Edge Cases\n"
+        (are [expected actual] (= expected actual)
+            true false))))
+
+(comment (deftest convert-test 
+           (testing "Unit Test for (convert arg)\n"
+     
+             (testing "Edge Cases\n"
+               (testing "(convert a-string)\n"
+                 (are [expected actual] (= expected actual)
+                      nil (convert nil)
+                      "" (convert "")
+                      " " (convert " ")
+                      "body\n" (convert "body\n"))))
+
+             (testing "Regular cases\n"
+               (testing "(convert a-string)\n"
+                 (are [expected actual] (= expected actual)
+                      "body" (convert "body")))))))
+
