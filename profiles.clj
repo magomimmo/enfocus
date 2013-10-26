@@ -1,4 +1,4 @@
-{:dev {:test-paths ["test/clj" "target/test/clj"]
+{:dev {:test-paths ["target/test/clj"]
        :resources-paths ["dev-resources"]
 
        :dependencies [[com.cemerick/piggieback "0.1.0"]
