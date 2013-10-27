@@ -11,8 +11,18 @@
   (testing "Unit Test for (convert arg)\n"
     
     (testing "Edge Cases\n"
-        (are [expected actual] (= expected actual)
-            true false))))
+      
+      (testing "(convert a-val)" 
+               (are [expected actual] (= expected actual)
+                    
+                    ;; extreme values for considered input type
+                    nil (convert nil)
+                    "" (convert "")
+                    " " (convert " ")
+                    "" (convert ())
+                    "" (convert [])
+                    "" (convert {})
+                    "" (convert #{}))))))
 
 (comment (deftest convert-test 
            (testing "Unit Test for (convert arg)\n"
