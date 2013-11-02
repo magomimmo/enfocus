@@ -1,14 +1,14 @@
-(defproject enfocus "2.0.1-SNAPSHOT"
+(defproject org.clojars.magomimmo/enfocus "2.1.0-SNAPSHOT"
   :description "DOM manipulation tool for clojurescript inspired by Enlive"
-  :url "http://ckirkendall.github.io/enfocus-site"
+  :url "https://github.com/magomimmo/enfocus/tree/2.1.0-SNAPSHOT"
   :license {:name "Eclipse Public License - v 1.0"
             :url "http://www.eclipse.org/legal/epl-v10.html"
             :distribution :repo}
 
   :min-lein-version "2.1.2"
 
-  :source-paths ["src/clj"]
-  :test-paths ["test/clj"]
+  :source-paths ["src/clj" "src/cljs"]
+  :test-paths ["test/clj" "test/cljs"]
 
   :dependencies [[org.clojure/clojure "1.5.1"]
                  [org.clojure/clojurescript "0.0-1847"]
