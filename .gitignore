@@ -7,7 +7,7 @@ target
 .metadata
 .project
 .classpath
-resources/public/js/*.js
-*.*#
-.#*
-*.*~
+.lein-repl-history
+.repl/
+dev-resources/public/js/
+out/

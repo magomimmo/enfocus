@@ -31,13 +31,16 @@
                :optimizations :none
                :pretty-print false}}}}
 
-  :profiles {:dev {:test-paths ["test/clj" "test/cljs"]
-                   :dependencies [[com.cemerick/piggieback "0.1.0"]]
+  :profiles {:dev {:resources-paths ["dev-resources"]
+                   :test-paths ["test/clj" "test/cljs"]
+                   :dependencies [[com.cemerick/piggieback "0.1.0"]
+                                  [ring "1.2.0"]
+                                  [compojure "1.1.5"]]
                    :plugins [[com.cemerick/clojurescript.test "0.1.0"]]
 
                    :cljsbuild
                    {:builds {:whitespace
-                             {:source-paths ["src/cljs" "test/cljs"]
+                             {:source-paths ["src/cljs" "test/cljs" "src/brepl"]
                               :compiler
                               {:output-to "dev-resources/public/js/whitespace.js"
                                :optimizations :whitespace
