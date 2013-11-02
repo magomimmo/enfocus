@@ -5,18 +5,17 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"
             :distribution :repo}
 
-  :min-lein-version "2.1.2"
+  :min-lein-version "2.2.0"
 
   :source-paths ["src/clj" "src/cljs"]
-  :test-paths ["test/clj" "test/cljs"]
+  
 
   :dependencies [[org.clojure/clojure "1.5.1"]
                  [org.clojure/clojurescript "0.0-1847"]
                  [domina "1.0.2"]
                  [org.jsoup/jsoup "1.7.2"]]
 
-  :plugins [[lein-cljsbuild "0.3.4"]
-            [com.cemerick/clojurescript.test "0.1.0"]]
+  :plugins [[lein-cljsbuild "0.3.4"]]
   
   :hooks [leiningen.cljsbuild]
 
@@ -24,34 +23,51 @@
   {:crossovers [enfocus.enlive.syntax]
    :crossover-jar true
 
-   :builds {:whitespace
-             {:source-paths ["src/cljs" "test/cljs"]
-              ; :jar true don't to this
+   :builds {:deploy
+             {:source-paths ["src/cljs"]
+              ;:jar true ; DON'T DO THIS
               :compiler
-              {:output-to "dev-resources/public/js/whitespace.js"
-               :optimizations :whitespace
-               :pretty-print true}}
+              {:output-to "dev-resources/public/js/deploy.js"
+               :optimizations :none
+               :pretty-print false}}}}
 
-             :simple
-             {:source-paths ["src/cljs" "test/cljs"]
-              :compiler
-              {:output-to "dev-resources/public/js/simple.js"
-               :optimizations :simple
-               :pretty-print false}}
+  :profiles {:dev {:test-paths ["test/clj" "test/cljs"]
+                   :dependencies [[com.cemerick/piggieback "0.1.0"]]
+                   :plugins [[com.cemerick/clojurescript.test "0.1.0"]]
 
-             :advanced
-             {:source-paths ["src/cljs" "test/cljs"]
-              :compiler
-              {:output-to "dev-resources/public/js/advanced.js"
-               :optimizations :advanced
-               :pretty-print false}}}
+                   :cljsbuild
+                   {:builds {:whitespace
+                             {:source-paths ["src/cljs" "test/cljs"]
+                              :compiler
+                              {:output-to "dev-resources/public/js/whitespace.js"
+                               :optimizations :whitespace
+                               :pretty-print true}}
+                             
+                             :simple
+                             {:source-paths ["src/cljs" "test/cljs"]
+                              :compiler
+                              {:output-to "dev-resources/public/js/simple.js"
+                               :optimizations :simple
+                               :pretty-print false}}
+                             
+                             :advanced
+                             {:source-paths ["src/cljs" "test/cljs"]
+                              :compiler
+                              {:output-to "dev-resources/public/js/advanced.js"
+                               :optimizations :advanced
+                               :pretty-print false}}}
+                    :test-commands {"whitespace"
+                                    ["phantomjs" :runner "dev-resources/public/js/whitespace.js"]
 
-   :test-commands {"whitespace"
-                   ["phantomjs" :runner "dev-resources/public/js/whitespace.js"]
+                                    "simple"
+                                    ["phantomjs" :runner "dev-resources/public/js/simple.js"]
 
-                   "simple"
-                   ["phantomjs" :runner "dev-resources/public/js/simple.js"]
-
-                   "advanced"
-                   ["phantomjs" :runner "dev-resources/public/js/advanced.js"]}})
+                                    "advanced"
+                                    ["phantomjs" :runner "dev-resources/public/js/advanced.js"]}}
+                   :repl-options {:nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}
+                   :injections [(require '[cljs.repl.browser :as brepl]
+                                         '[cemerick.piggieback :as pb])
+                                (defn browser-repl []
+                                  (pb/cljs-repl :repl-env
+                                                (brepl/repl-env :port 9000)))]}})
 
