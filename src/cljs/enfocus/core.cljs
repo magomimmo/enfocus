@@ -697,7 +697,7 @@
   (select [this] (select this js/document ""))
   (select [this root] (select this root ""))
   (select [this root id-mask] (css-select id-mask root this))
-  js/String
+  string
   (select [this] (select this js/document ""))
   (select [this root] (select this root ""))
   (select [this root id-mask] (css-select id-mask root [this])))
