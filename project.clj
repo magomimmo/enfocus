@@ -11,11 +11,11 @@
   
 
   :dependencies [[org.clojure/clojure "1.5.1"]
-                 [org.clojure/clojurescript "0.0-1847"]
+                 [org.clojure/clojurescript "0.0-2069"]
                  [domina "1.0.2"]
                  [org.jsoup/jsoup "1.7.2"]]
 
-  :plugins [[lein-cljsbuild "0.3.4"]]
+  :plugins [[lein-cljsbuild "1.0.0"]]
   
   :hooks [leiningen.cljsbuild]
 
@@ -33,10 +33,10 @@
 
   :profiles {:dev {:resources-paths ["dev-resources"]
                    :test-paths ["test/clj" "test/cljs"]
-                   :dependencies [[com.cemerick/piggieback "0.1.0"]
-                                  [ring "1.2.0"]
-                                  [compojure "1.1.5"]]
-                   :plugins [[com.cemerick/clojurescript.test "0.1.0"]]
+                   :dependencies [[com.cemerick/piggieback "0.1.2"]
+                                  [ring "1.2.1"]
+                                  [compojure "1.1.6"]]
+                   :plugins [[com.cemerick/clojurescript.test "0.2.1"]]
 
                    :cljsbuild
                    {:builds {:whitespace
