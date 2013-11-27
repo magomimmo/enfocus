@@ -1,16 +1,11 @@
 {:dev {:resources-paths ["dev-resources"]
-                   :test-paths ["test/clj" "test/cljs"]
-                   :dependencies [[com.cemerick/piggieback "0.1.2"]
-                                  [ring "1.2.1"]
-                                  [compojure "1.1.6"]]
-                   :plugins [[com.cemerick/clojurescript.test "0.2.1"]]
        :test-paths ["test/clj" "target/test/clj" "test/cljs" "target/test/cljs"]
        
-       :dependencies [[com.cemerick/piggieback "0.1.0"]
-                      [ring "1.2.0"]
-                      [compojure "1.1.5"]]
+       :dependencies [[com.cemerick/piggieback "0.1.2"]
+                      [ring "1.2.1"]
+                      [compojure "1.1.6"]]
        
-       :plugins [[com.cemerick/clojurescript.test "0.1.0"]
+       :plugins [[com.cemerick/clojurescript.test "0.2.1"]
                  [com.keminglabs/cljx "0.3.0"]]
 
        :cljx {:builds [{:source-paths ["test/cljx"]
