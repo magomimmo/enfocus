@@ -11,12 +11,12 @@
   :test-paths ["test/clj" "test/cljs"]
 
   :dependencies [[org.clojure/clojure "1.5.1"]
-                 [org.clojure/clojurescript "0.0-1847"]
+                 [org.clojure/clojurescript "0.0-2069"]
                  [domina "1.0.2"]
                  [org.jsoup/jsoup "1.7.2"]]
 
-  :plugins [[lein-cljsbuild "0.3.4"]
-            [com.cemerick/clojurescript.test "0.1.0"]]
+  :plugins [[lein-cljsbuild "1.0.0"]
+            [com.cemerick/clojurescript.test "0.2.1"]]
   
   :hooks [leiningen.cljsbuild]
 
